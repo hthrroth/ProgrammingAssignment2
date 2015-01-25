@@ -4,6 +4,13 @@
 ## matrix without continuously assigning a variable to that function
 ## Therefore you create a matrix that can cache its own inverse
 
+## set - sets the value of a matrix
+## get - gets function gets the value of a matrix
+## setInverse - sets the cahced value (inverse of the matrix)
+## getInverse - gets the cahced value (inverse of the matrix)
+
+## the inverse is set to NULL as a default value before anything is cached
+
 makeCacheMatrix <- function(mtx = matrix()) {
         inverse <- NULL
         set <- function(x) {
@@ -15,9 +22,6 @@ makeCacheMatrix <- function(mtx = matrix()) {
         getinverse <- function() inv
         list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
-
-## setting the inverse to NULL provides a default value before
-## the cacheSolve function below is used
 
 ## cacheSolve calls the resulting function from the `makeCacheMatrix` above 
 ## and receives the inverse of the cache if the matrix has not changed
